@@ -4,7 +4,7 @@
  */
 
 var express = require('express'),
-  wine = require('./routes/wines'),
+  item = require('./routes/items'),
   http = require('http');
 
 var app = express();
@@ -21,12 +21,12 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/wines', wine.findAll);
-app.get('/wines/:id', wine.findById);
-app.post('/wines', wine.addWine);
-app.put('/wines/:id', wine.updateWine);
-app.delete('/wines/:id', wine.deleteWine);
+app.get('/items', item.findAll);
+app.get('/items/:id', item.findById);
+app.post('/items', item.addItem);
+app.put('/items/:id', item.updateItem);
+app.delete('/items/:id', item.deleteItem);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
-});
+});@
